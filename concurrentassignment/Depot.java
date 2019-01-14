@@ -54,24 +54,6 @@ public class Depot extends Thread{
     }
 
 
-   /* public void ResetLeave(ArrayList leave_arr){
-        try {
-            synchronized (leave_arr) {
-
-                //CleanBus(al);               //Add bus from mech slot to cleaning slot
-                leave_arr.wait(100);
-                for(int b = leave_arr.size()-1; b >=0; b--){
-                    leave_arr.remove(b);
-                }
-                //System.out.println("Mechanic is available" + al);
-            }
-            leave_arr.wait(10);
-            //System.out.println(al + " Empty");
-        } catch (InterruptedException iex) {
-            iex.printStackTrace();
-        }
-    }*/
-
 
     public void remove_bus_from_clean(ArrayList al1){
         try {
