@@ -24,8 +24,4 @@ public class Cleaner extends Thread{
 
     }
 
-
-    public void Cleaning(){
-
-    }
 }

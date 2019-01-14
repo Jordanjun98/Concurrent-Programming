@@ -1,6 +1,8 @@
 package concurrentassignment;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Depot extends Thread{
 
@@ -40,6 +42,8 @@ public class Depot extends Thread{
 
         Queue cleaningQueue = new LinkedList(bus_ls);
 
+
+
         while(cleaningQueue.size() > 0){
             leave.add(((LinkedList) cleaningQueue).getFirst());
             System.out.println("Cleaner is cleaning the bus " + ((LinkedList) cleaningQueue).pollFirst());
@@ -57,7 +61,6 @@ public class Depot extends Thread{
 
     public void remove_bus_from_clean(ArrayList al1){
         try {
-
             synchronized (al1) {
 
                 //On queue ramp
@@ -107,18 +110,25 @@ public class Depot extends Thread{
             //Fixing queue
             Queue fixingQueue = new LinkedList(al);
 
+            ArrayList donefixed = new ArrayList();
+
             while(fixingQueue.size() > 0){
 
-                System.out.println("Bus in mechanic " + ((LinkedList) fixingQueue).getFirst() +  " " +bus.getInTime());
+                donefixed.add(((LinkedList) fixingQueue).getFirst());
+                System.out.println("Bus in mechanic workshop " + ((LinkedList) fixingQueue).getFirst() +  " " +bus.getInTime());
                 System.out.println("Mechanic is fixing the bus " + ((LinkedList) fixingQueue).pollFirst() + " " +bus.getInTime());
                 System.out.println("Mechanic done fixing " + fixingQueue);
+
+                if(donefixed.size() %no_mech == 0){
+                    CleanBus(donefixed);
+                    remove_bus();
+                }
             }
 
-            if(count_bus %no_mech == 0){
+            /*if(count_bus %no_mech == 0){
                 CleanBus(al);
                 remove_bus();
-
-            }
+            }*/
 
         }
 
@@ -135,6 +145,7 @@ public class Depot extends Thread{
                     al.remove(b);
                 }
                 System.out.println("Mechanic is available" + al);
+                System.out.println("Depot are closing! ");
             }
             //al.wait(10);
             //System.out.println(al + " Empty");

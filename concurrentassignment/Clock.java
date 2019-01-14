@@ -2,7 +2,7 @@ package concurrentassignment;
 
 public class Clock extends Thread {
 
-    private BusGenerator bg;
+    BusGenerator bg;
 
     public Clock(BusGenerator bg){
         this.bg = bg;

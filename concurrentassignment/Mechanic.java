@@ -26,10 +26,4 @@ public class Mechanic implements Runnable {
     }
 
 
-    public synchronized void isnotavailable()
-    {
-        //NotAvailable_mech = true;
-        System.out.println("Ramp not available");
-    }
-
 }
