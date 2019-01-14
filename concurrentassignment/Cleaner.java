@@ -1,7 +1,5 @@
 package concurrentassignment;
 
-import java.util.concurrent.Semaphore;
-
 public class Cleaner extends Thread{
     Depot depot;
 

@@ -1,7 +1,7 @@
 package concurrentassignment;
 
 import java.util.Date;
-import java.util.Scanner;
+
 import java.util.concurrent.Semaphore;
 
 public class Bus extends Thread{
