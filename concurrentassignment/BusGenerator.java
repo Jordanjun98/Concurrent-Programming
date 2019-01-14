@@ -59,7 +59,7 @@ public class BusGenerator implements Runnable{
     public synchronized void isnotavailable()
     {
         Notavailable = true;
-        System.out.println("Ramp not available");
+        System.out.println("Depot is close");
     }
 
 }

@@ -41,7 +41,7 @@ public class main{
 
         no_clean = input_clean.nextInt();
 
-        Depot depot = new Depot(no_mech,no_clean);
+        Depot depot = new Depot(no_mech,no_clean,in);
 
         BusGenerator bg = new BusGenerator(depot,in);
 
